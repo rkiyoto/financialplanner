@@ -1,5 +1,12 @@
-import React from 'react';
+import React from "react";
+
+import { ThemeProvider } from "styled-components";
+import theme from './style/theme'
+
+import Home from "./components/Home";
 
 export function App(): JSX.Element {
-  return <div data-testid="greetings-container">Welcome to the Origin THA</div>;
+  return <ThemeProvider theme={theme}>
+    <Home />
+  </ThemeProvider>
 }
