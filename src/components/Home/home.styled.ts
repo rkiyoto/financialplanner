@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100vh;
 
-  background-color: ${({theme}) => theme.colors.ice}
+  background-color: ${({ theme }) => theme.colors.ice};
 `;
 
 export const SubtitleView = styled.div`
@@ -15,14 +15,18 @@ export const SubtitleView = styled.div`
   justify-content: center;
   color: ${({ theme }) => theme.colors.brandColorPrimary};
   font-size: 20px;
+  font-family: ${({ theme }) => theme.fonts.family.secondary};
   font-weight: 400;
-  line-height: ${({theme}) => theme.space.large};
-  margin-top: ${({theme}) => theme.space.xxl};
+  line-height: ${({ theme }) => theme.space.large};
+  margin-top: ${({ theme }) => theme.space.xxl};
   margin-bottom: ${({ theme }) => theme.space.large};
-    
-  @media (max-width: 500px)
-  {
-  margin-top: 32px;
+
+  strong {
+    font-weight: 600;
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 32px;
   }
 `;
 
@@ -31,4 +35,3 @@ export const ContentView = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
