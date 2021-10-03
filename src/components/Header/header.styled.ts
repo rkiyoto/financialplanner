@@ -5,10 +5,10 @@ export const Container = styled.div`
   position: sticky;
   display: flex;
   flex-direction: row;
-  padding: ${({ theme }) => theme.space.large}
-    ${({ theme }) => theme.space.xxxl};
   justify-content: flex-start;
   align-items: center;
+  padding: ${({ theme }) => theme.space.large}
+    ${({ theme }) => theme.space.xxxl};
   padding-left: ${({ theme }) => theme.space.xxxl};
   background-color: ${({ theme }) => theme.colors.white};
 
