@@ -1,14 +1,13 @@
 import styled from "styled-components";
-import { isForInStatement } from "typescript";
-
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  flex: 1;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.blueGray["50"]};
   border-radius: ${({ theme }) => theme.space.xs};
-  width: 200px;
+  min-width: 200px;
   height: ${({ theme }) => theme.space.xxxl};
 `;
 

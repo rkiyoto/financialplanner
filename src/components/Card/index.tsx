@@ -41,8 +41,12 @@ const Card = () => {
           <S.InputField>
             <S.InputLabel>Reach goal by</S.InputLabel>
             <ReachDatePicker
-              prevClick={() => reachDate > 0 && setReachDate(reachDate - 1)}
-              nextClick={() => setReachDate(reachDate + 1)}
+              prevClick={() =>
+                setReachDate((reachDate) =>
+                  reachDate > 0 ? reachDate - 1 : reachDate
+                )
+              }
+              nextClick={() => setReachDate((reachDate) => reachDate + 1)}
               current={reachDate}
             />
           </S.InputField>
