@@ -1,24 +1,29 @@
 /* eslint-disable no-console */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import AmountInput from "../AmountInput";
 import ReachDatePicker from "../ReachDatePicker";
+import { getDateFromNow } from "../../utils/months";
 import { ReactComponent as House } from "../../assets/icons/buy-a-house.svg";
 import * as S from "./card.styled";
 
 const Card = () => {
   const [monthlyAmount, setMonthlyAmount] = useState<string>("0");
-  const [reachDate, setReachDate] = useState(0);
+  const [reachDate, setReachDate] = useState<number>(1);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
+  const getAmount = () => {
     const amount = document.getElementById("amount") as HTMLInputElement;
-    const result = (Number(amount.value) / reachDate)
-      .toFixed(2)
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-      .replace(/[.,]00$/, "");
-    setMonthlyAmount(result);
+    return amount.value;
   };
+
+  useEffect(() => {
+    const timeWindow = reachDate > 0 ? reachDate : 1;
+    const result = (Number(getAmount()) / timeWindow)
+      .toFixed(2) // .99 decimals
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") // 1,000,000 format
+      .replace(/[.,]00$/, ""); // remove unecessary decimals
+    setMonthlyAmount(result);
+  }, [reachDate]);
 
   return (
     <S.Container>
@@ -32,41 +37,43 @@ const Card = () => {
         </S.HeadTextSection>
       </S.HeadSection>
 
-      <form onSubmit={handleSubmit}>
-        <S.InputSection>
-          <S.InputField>
-            <S.InputLabel>Total amount</S.InputLabel>
-            <AmountInput />
-          </S.InputField>
-          <S.InputField>
-            <S.InputLabel>Reach goal by</S.InputLabel>
-            <ReachDatePicker
-              prevClick={() =>
-                setReachDate((reachDate) =>
-                  reachDate > 0 ? reachDate - 1 : reachDate
-                )
-              }
-              nextClick={() => setReachDate((reachDate) => reachDate + 1)}
-              current={reachDate}
-            />
-          </S.InputField>
-        </S.InputSection>
+      <S.InputSection>
+        <S.InputField>
+          <S.InputLabel>Total amount</S.InputLabel>
+          <AmountInput />
+        </S.InputField>
+        <S.InputField>
+          <S.InputLabel>Reach goal by</S.InputLabel>
+          <ReachDatePicker
+            prevClick={() =>
+              setReachDate((reachDate) =>
+                reachDate > 0 ? reachDate - 1 : reachDate
+              )
+            }
+            nextClick={() => setReachDate((reachDate) => reachDate + 1)}
+            current={reachDate}
+          />
+        </S.InputField>
+      </S.InputSection>
 
-        <S.MonthlyAmountInfo>
-          <S.MonthlyAmountValues>
-            <h2>Monthly amount</h2>
-            <strong title={`$${monthlyAmount}`}>{`$${monthlyAmount}`}</strong>
-          </S.MonthlyAmountValues>
-          <S.MonthlyAmountDescription>
-            <p>
-              You’re planning <strong>48 monthly deposits</strong> to reach your{" "}
-              <strong>$25,000</strong> goal by <strong>October 2020</strong>.
-            </p>
-          </S.MonthlyAmountDescription>
-        </S.MonthlyAmountInfo>
+      <S.MonthlyAmountInfo>
+        <S.MonthlyAmountValues>
+          <h2>Monthly amount</h2>
+          <strong title={`$${monthlyAmount}`}>{`$${monthlyAmount}`}</strong>
+        </S.MonthlyAmountValues>
+        <S.MonthlyAmountDescription>
+          <p>
+            You’re planning <strong>{reachDate} monthly deposits</strong> to
+            reach your <strong>${getAmount()}</strong> goal by{" "}
+            <strong>{`${getDateFromNow(reachDate).month} ${
+              getDateFromNow(reachDate).year
+            }`}</strong>
+            .
+          </p>
+        </S.MonthlyAmountDescription>
+      </S.MonthlyAmountInfo>
 
-        <S.ConfirmButton>Confirm</S.ConfirmButton>
-      </form>
+      <S.ConfirmButton>Confirm</S.ConfirmButton>
     </S.Container>
   );
 };
