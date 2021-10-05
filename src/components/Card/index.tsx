@@ -11,14 +11,10 @@ const Card = () => {
   const [monthlyAmount, setMonthlyAmount] = useState<string>("0");
   const [reachDate, setReachDate] = useState<number>(1);
 
-  const getAmount = () => {
-    const amount = document.getElementById("amount") as HTMLInputElement;
-    return amount.value;
-  };
-
   useEffect(() => {
+    const amount = document.getElementById("amount") as HTMLInputElement;
     const timeWindow = reachDate > 0 ? reachDate : 1;
-    const result = (Number(getAmount()) / timeWindow)
+    const result = (Number(amount.value) / timeWindow)
       .toFixed(2) // .99 decimals
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") // 1,000,000 format
       .replace(/[.,]00$/, ""); // remove unecessary decimals
@@ -64,7 +60,7 @@ const Card = () => {
         <S.MonthlyAmountDescription>
           <p>
             You’re planning <strong>{reachDate} monthly deposits</strong> to
-            reach your <strong>${getAmount()}</strong> goal by{" "}
+            reach your <strong>$123</strong> goal by{" "}
             <strong>{`${getDateFromNow(reachDate).month} ${
               getDateFromNow(reachDate).year
             }`}</strong>
