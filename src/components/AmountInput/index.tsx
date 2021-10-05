@@ -21,7 +21,11 @@ const AmountInput = ({ amount, onChange }: AmountInputProps) => {
   return (
     <S.Container>
       <Dollar />
-      <S.AmountInput value={amount} onChangeEvent={handleInputChange} />
+      <S.AmountInput
+        label="Total amount"
+        value={amount}
+        onChangeEvent={handleInputChange}
+      />
     </S.Container>
   );
 };

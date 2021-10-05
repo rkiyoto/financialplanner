@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex: 1 1 0;
   align-items: center;
-  padding-left: 12px;
+  padding: 15px 12px;
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.blueGray["50"]};
   border-radius: ${({ theme }) => theme.space.xs};
@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const AmountInput = styled(CurrencyInput)`
   flex: 1;
-  height: 44px;
+  height: 24px;
   width: 200px;
   margin-left: 8px;
   border: 0;

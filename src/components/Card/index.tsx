@@ -13,7 +13,6 @@ const Card = () => {
   const [monthlyAmount, setMonthlyAmount] = useState<string>("0");
 
   useEffect(() => {
-    console.log("🚀 ~ file: index.tsx ~ line 23 ~ Card ~ amount", amount);
     const timeWindow = reachDate > 0 ? reachDate : 1;
     const result = (amount[0] / timeWindow)
       .toFixed(2) // .99 decimals

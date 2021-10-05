@@ -27,6 +27,7 @@ export const SubtitleView = styled.div`
 
   @media (max-width: 500px) {
     margin-top: 32px;
+    font-size: 18px;
   }
 `;
 

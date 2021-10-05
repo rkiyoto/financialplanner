@@ -45,6 +45,15 @@ export const HeadTextSection = styled.div`
     font-family: ${({ theme }) => theme.fonts.family.secondary};
     color: ${({ theme }) => theme.colors.blueGray["400"]};
   }
+
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Section = styled.div`
@@ -88,6 +97,10 @@ export const InputLabel = styled.h4`
   font-family: ${({ theme }) => theme.fonts.family.secondary};
   margin-bottom: 4px;
   color: ${({ theme }) => theme.colors.blueGray["900"]};
+
+  @media (max-width: 500px) {
+    font-size: 12px;
+  }
 `;
 
 export const Input = styled.input`
@@ -113,7 +126,7 @@ export const MonthlyAmountValues = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 32px;
+  padding: 32px;
 
   h2 {
     margin: 0;
@@ -121,21 +134,31 @@ export const MonthlyAmountValues = styled.div`
     font-weight: 400;
     font-family: ${({ theme }) => theme.fonts.family.secondary};
     color: ${({ theme }) => theme.colors.blueGray["900"]};
-
-    @media (max-width: 500px) {
-      font-size: 18px;
-    }
   }
 
   strong {
+    flex: 1;
     margin: 0;
+    margin-left: 8px;
     font-size: 32px;
     font-weight: 500;
+    text-align: end;
     font-family: ${({ theme }) => theme.fonts.family.primary};
-    max-width: 200px;
     color: ${({ theme }) => theme.colors.brandColorSecondary};
 
-    @media (max-width: 500px) {
+    white-space: nowrap;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 500px) {
+    padding: 24px;
+
+    h2 {
+      font-size: 18px;
+    }
+    strong {
       font-size: 24px;
     }
   }
@@ -156,6 +179,9 @@ export const MonthlyAmountDescription = styled.div`
 
   strong {
     font-weight: 600;
+  }
+  @media (max-width: 500px) {
+    text-align: center;
   }
 `;
 

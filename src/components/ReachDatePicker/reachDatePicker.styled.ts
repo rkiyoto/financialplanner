@@ -4,6 +4,7 @@ export const Container = styled.div`
   flex-direction: row;
   flex: 1;
   justify-content: space-between;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.blueGray["50"]};
   border-radius: ${({ theme }) => theme.space.xs};
@@ -13,6 +14,7 @@ export const Container = styled.div`
 
 export const ArrowButton = styled.button`
   display: flex;
+  height: 100%;
   align-items: center;
   cursor: pointer;
   background-color: transparent;
@@ -34,19 +36,25 @@ export const ArrowButton = styled.button`
 export const DateView = styled.div`
   display: flex;
   flex: 1;
+  height: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: ${({ theme }) => theme.space.xs} ${({ theme }) => theme.space.small};
+  justify-content: center;
   font-family: ${({ theme }) => theme.fonts.family.secondary};
+  font-size: 16px;
+  height: 54px;
 
   strong {
     color: ${({ theme }) => theme.colors.blueGray["900"]};
     font-weight: 600;
+    margin-bottom: 4px;
   }
 
   p {
     color: ${({ theme }) => theme.colors.blueGray["300"]};
     font-weight: 400;
+  }
+  @media (max-width: 500px) {
+    font-size: 14px;
   }
 `;
