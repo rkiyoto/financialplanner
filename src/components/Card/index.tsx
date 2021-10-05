@@ -8,18 +8,19 @@ import { ReactComponent as House } from "../../assets/icons/buy-a-house.svg";
 import * as S from "./card.styled";
 
 const Card = () => {
-  const [monthlyAmount, setMonthlyAmount] = useState<string>("0");
+  const [amount, setAmount] = useState<[number, string]>([0, "0"]);
   const [reachDate, setReachDate] = useState<number>(1);
+  const [monthlyAmount, setMonthlyAmount] = useState<string>("0");
 
   useEffect(() => {
-    const amount = document.getElementById("amount") as HTMLInputElement;
+    console.log("🚀 ~ file: index.tsx ~ line 23 ~ Card ~ amount", amount);
     const timeWindow = reachDate > 0 ? reachDate : 1;
-    const result = (Number(amount.value) / timeWindow)
+    const result = (amount[0] / timeWindow)
       .toFixed(2) // .99 decimals
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") // 1,000,000 format
       .replace(/[.,]00$/, ""); // remove unecessary decimals
     setMonthlyAmount(result);
-  }, [reachDate]);
+  }, [reachDate, amount]);
 
   return (
     <S.Container>
@@ -36,7 +37,10 @@ const Card = () => {
       <S.InputSection>
         <S.InputField>
           <S.InputLabel>Total amount</S.InputLabel>
-          <AmountInput />
+          <AmountInput
+            amount={amount[0]}
+            onChange={(value, maskedInput) => setAmount([value, maskedInput])}
+          />
         </S.InputField>
         <S.InputField>
           <S.InputLabel>Reach goal by</S.InputLabel>
@@ -60,7 +64,7 @@ const Card = () => {
         <S.MonthlyAmountDescription>
           <p>
             You’re planning <strong>{reachDate} monthly deposits</strong> to
-            reach your <strong>$123</strong> goal by{" "}
+            reach your <strong>${amount[1]}</strong> goal by{" "}
             <strong>{`${getDateFromNow(reachDate).month} ${
               getDateFromNow(reachDate).year
             }`}</strong>

@@ -1,25 +1,28 @@
 /* eslint-disable no-console */
-import React, { useState } from "react";
+import React from "react";
+import { ReactComponent as Dollar } from "../../assets/dollar.svg";
 
-const format = (input: string) =>
-  input.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+import * as S from "./amountInput.styled";
 
-const AmountInput = () => {
-  const [formattedAmount, setFormattedAmount] = useState("");
+interface AmountInputProps {
+  amount: number;
+  onChange: (value: number, maskedvalue: string) => void;
+}
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // TODO: needs formatting
-    setFormattedAmount(e.currentTarget.value);
+const AmountInput = ({ amount, onChange }: AmountInputProps) => {
+  const handleInputChange = (
+    event: React.SyntheticEvent,
+    maskedvalue: string,
+    floatvalue: number
+  ) => {
+    onChange(floatvalue, maskedvalue);
   };
 
   return (
-    <input
-      id="amount"
-      type="number"
-      name="amount"
-      value={formattedAmount}
-      onChange={(event) => handleInputChange(event)}
-    />
+    <S.Container>
+      <Dollar />
+      <S.AmountInput value={amount} onChangeEvent={handleInputChange} />
+    </S.Container>
   );
 };
 

@@ -20,13 +20,16 @@ When the users change the value of any of the inputs, the monthly deposit value 
 # Development Instructions
 
 ### Evaluation
+
 Be aware that Origin will mainly take into consideration the following evaluation criteria:
-* How close your page is to the mockups, both on mobile & desktop;
-* How clean and organized your code is;
-* How good your automated tests are, i.e.: qualitative over quantitative (in case of usage of this base project, feel free to choose between jest or testing library);
-* If you implemented the business rules correctly.
+
+- How close your page is to the mockups, both on mobile & desktop;
+- How clean and organized your code is;
+- How good your automated tests are, i.e.: qualitative over quantitative (in case of usage of this base project, feel free to choose between jest or testing library);
+- If you implemented the business rules correctly.
 
 ### Assets
+
 You can find the layout mockups here on our Figma project:
 [Layout mockups](https://www.figma.com/file/Axdg0WSJURcxp8Arq3gg9x/Take-Home-Assignment-v2)
 
@@ -60,6 +63,7 @@ Don't create a fork, send us the link to your repository and make sure to make i
 # Usage
 
 This project requires the latest LTS version of NodeJS and you may need to install the yarn as global dependency
+
 ```bash
 npm install -g yarn
 ```
@@ -90,3 +94,7 @@ yarn format
 ```
 yarn test
 ```
+
+#
+
+[Masked Currency Input](https://github.com/jsillitoe/react-currency-input)
