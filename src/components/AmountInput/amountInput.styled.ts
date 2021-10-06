@@ -23,4 +23,8 @@ export const AmountInput = styled(CurrencyInput)`
   font-weight: 500;
   font-family: ${({ theme }) => theme.fonts.family.primary};
   background-color: transparent;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
