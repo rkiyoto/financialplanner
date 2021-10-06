@@ -5,7 +5,7 @@ import { Amount } from "../types";
 
 import * as S from "./inputSection.styled";
 
-interface InputSectionProps {
+export interface InputSectionProps {
   amount: Amount;
   reachDate: number;
   setAmount: (value: React.SetStateAction<[number, string]>) => void;

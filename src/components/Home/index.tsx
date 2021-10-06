@@ -8,7 +8,7 @@ const Home = () => (
   <S.Container>
     <Header />
     <S.SubtitleView>
-      <span>
+      <span data-testid="subtitle-text">
         Let&apos;s plan your <strong>saving goal</strong>.
       </span>
     </S.SubtitleView>

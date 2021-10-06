@@ -42,7 +42,11 @@ const ReachDatePicker = ({
   };
 
   return (
-    <S.Container id="picker-container" tabIndex={0}>
+    <S.Container
+      data-testid="picker-container"
+      id="picker-container"
+      tabIndex={0}
+    >
       <S.ArrowButton
         name="previous-button"
         id="previousClick"
@@ -51,7 +55,7 @@ const ReachDatePicker = ({
       >
         <LeftArrow />
       </S.ArrowButton>
-      <S.DateView>
+      <S.DateView data-testid="date-view">
         <strong>{dateFromNow.month}</strong>
         <p>{dateFromNow.year}</p>
       </S.DateView>

@@ -20,9 +20,10 @@ const AmountInput = ({ amount, onChange }: AmountInputProps) => {
 
   return (
     <S.Container>
-      <Dollar />
+      <Dollar data-testid="dollar-sign" />
       <S.AmountInput
         label="Total amount"
+        name="input"
         value={amount}
         onChangeEvent={handleInputChange}
       />

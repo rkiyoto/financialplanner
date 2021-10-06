@@ -24,7 +24,7 @@ const Card = () => {
   }, [reachDate, amount]);
 
   return (
-    <S.Container>
+    <S.Container data-testid="card-view">
       <HeadSection title="Buy a house" image={<House />} />
 
       <InputSection
