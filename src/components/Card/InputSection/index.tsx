@@ -31,7 +31,7 @@ const InputSection = ({
       <ReachDatePicker
         prevClick={() =>
           setReachDate((reachDate) =>
-            reachDate > 0 ? reachDate - 1 : reachDate
+            reachDate > 1 ? reachDate - 1 : reachDate
           )
         }
         nextClick={() => setReachDate((reachDate) => reachDate + 1)}

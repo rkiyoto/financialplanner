@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import { ReactComponent as Dollar } from "../../assets/dollar.svg";
 

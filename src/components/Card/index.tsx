@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 
 import { ReactComponent as House } from "../../assets/icons/buy-a-house.svg";
@@ -40,6 +39,7 @@ const Card = () => {
         reachDate={reachDate}
       />
 
+      {/* eslint-disable-next-line no-console */}
       <S.ConfirmButton onClick={() => console.log("Confirm action here")}>
         Confirm
       </S.ConfirmButton>

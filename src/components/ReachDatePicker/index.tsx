@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect } from "react";
 
 import { getDateFromNow } from "../../utils/months";
@@ -51,7 +50,7 @@ const ReachDatePicker = ({
         name="previous-button"
         id="previousClick"
         onClick={handleButtonClick}
-        disabled={current <= 0}
+        disabled={current <= 1}
       >
         <LeftArrow />
       </S.ArrowButton>
