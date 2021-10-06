@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const InputSection = styled.div`
   display: flex;
-  margin-top: 24px;
-  border-radius: 8px;
+  margin-top: ${({ theme }) => theme.space.large};
+  border-radius: ${({ theme }) => theme.space.small};
   flex-direction: row;
   justify-content: space-between;
 
@@ -19,7 +19,7 @@ export const InputField = styled.div`
 
   :last-of-type {
     flex: 1;
-    margin-left: 16px;
+    margin-left: ${({ theme }) => theme.space.medium};
   }
 
   @media (max-width: 500px) {
@@ -27,20 +27,20 @@ export const InputField = styled.div`
 
     :last-of-type {
       margin: 0;
-      margin-top: 16px;
+      margin-top: ${({ theme }) => theme.space.medium};
     }
   }
 `;
 
 export const InputLabel = styled.h4`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.fonts.size.small};
   font-weight: 400;
   font-family: ${({ theme }) => theme.fonts.family.secondary};
-  margin-bottom: 4px;
+  margin-bottom: ${({ theme }) => theme.space.xs};
   color: ${({ theme }) => theme.colors.blueGray["900"]};
 
   @media (max-width: 500px) {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.fonts.size.xs};
   }
 `;
 
@@ -51,7 +51,7 @@ export const Input = styled.input`
   flex: 1;
   min-width: 0;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.space.xs};
   border: 1px solid ${({ theme }) => theme.colors.blueGray["50"]};
   color: ${({ theme }) => theme.colors.blueGray["600"]};
 `;

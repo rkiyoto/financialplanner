@@ -14,13 +14,13 @@ export const HeadTextSection = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-left: 16px;
+  padding-left: ${({ theme }) => theme.space.medium};
   height: 64px;
   justify-content: space-evenly;
 
   h2 {
     margin: 0;
-    font-size: 24px;
+    font-size: ${({ theme }) => theme.fonts.size.large};
     font-weight: 500;
     font-family: ${({ theme }) => theme.fonts.family.primary};
     color: ${({ theme }) => theme.colors.blueGray["900"]};
@@ -28,7 +28,7 @@ export const HeadTextSection = styled.div`
 
   h3 {
     margin: 0;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fonts.size.medium};
     font-weight: 400;
     font-family: ${({ theme }) => theme.fonts.family.secondary};
     color: ${({ theme }) => theme.colors.blueGray["400"]};
@@ -39,7 +39,7 @@ export const HeadTextSection = styled.div`
       font-size: 20px;
     }
     h3 {
-      font-size: 14px;
+      font-size: ${({ theme }) => theme.fonts.size.small};
     }
   }
 `;

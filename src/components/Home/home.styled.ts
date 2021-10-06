@@ -26,7 +26,7 @@ export const SubtitleView = styled.div`
   }
 
   @media (max-width: 500px) {
-    margin-top: 32px;
+    margin-top: ${({ theme }) => theme.space.xl};
     font-size: 18px;
   }
 `;

@@ -1,6 +1,12 @@
 const theme = {
   fonts: {
-    size: {},
+    size: {
+      xs: "12px",
+      small: "14px",
+      medium: "16px",
+      large: "24px",
+      xl: "32px",
+    },
     weight: {},
     family: {
       primary: "'Rubik', 'Roboto Mono', sans-serif",

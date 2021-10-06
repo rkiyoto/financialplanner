@@ -41,13 +41,13 @@ export const DateView = styled.div`
   align-items: center;
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.family.secondary};
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fonts.size.medium};
   height: 54px;
 
   strong {
     color: ${({ theme }) => theme.colors.blueGray["900"]};
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: ${({ theme }) => theme.space.xs};
   }
 
   p {
@@ -55,6 +55,6 @@ export const DateView = styled.div`
     font-weight: 400;
   }
   @media (max-width: 500px) {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fonts.size.small};
   }
 `;

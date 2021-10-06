@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const MonthlyAmountInfo = styled.div`
   display: flex;
-  margin-top: 24px;
-  border-radius: 8px;
+  margin-top: ${({ theme }) => theme.space.large};
+  border-radius: ${({ theme }) => theme.space.small};
   flex-direction: column;
   border: 1px solid ${({ theme }) => theme.colors.blueGray["50"]};
 `;
@@ -14,7 +14,7 @@ export const MonthlyAmountValues = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 32px;
+  padding: ${({ theme }) => theme.space.xl};
 
   h2 {
     margin: 0;
@@ -27,8 +27,8 @@ export const MonthlyAmountValues = styled.div`
   strong {
     flex: 1;
     margin: 0;
-    margin-left: 8px;
-    font-size: 32px;
+    margin-left: ${({ theme }) => theme.space.small};
+    font-size: ${({ theme }) => theme.fonts.size.xl};
     font-weight: 500;
     text-align: end;
     font-family: ${({ theme }) => theme.fonts.family.primary};
@@ -41,13 +41,13 @@ export const MonthlyAmountValues = styled.div`
   }
 
   @media (max-width: 500px) {
-    padding: 24px;
+    padding: ${({ theme }) => theme.space.large};
 
     h2 {
       font-size: 18px;
     }
     strong {
-      font-size: 24px;
+      font-size: ${({ theme }) => theme.fonts.size.large};
     }
   }
 `;
@@ -57,10 +57,10 @@ export const MonthlyAmountDescription = styled.div`
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding: 24px 32px;
+  padding: ${({ theme }) => theme.space.large} ${({ theme }) => theme.space.xl};
   background-color: ${({ theme }) => theme.colors.blueGray["10"]};
   font-family: ${({ theme }) => theme.fonts.family.secondary};
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.fonts.size.xs};
   line-height: 16px;
   font-weight: 400;
   color: ${({ theme }) => theme.colors.blueGray["900"]};
